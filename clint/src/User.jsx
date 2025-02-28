@@ -6,18 +6,21 @@ import axios from 'axios'
 function User() {
   const [User, setUser] = useState([])
 
-  useEffect(()=>{
-axios.get('http://localhost:3001')
-.then(result => setUser(result.data))
-.catch(error => console.log(error))
+  useEffect(() => {
+    axios.get('http://localhost:3001')
+      .then(result => setUser(result.data))
+      .catch(error => console.log(error))
 
-  },[])
+  }, [])
 
-const handleDelete =(id)=>{
-  axios.delete('http://localhost:3001/deleteUser/'+id)
-  .then(res=> console.log(res))
-  .catch(error => console.log(error))
-}
+  const handleDelete = (id) => {
+    axios.delete('http://localhost:3001/deleteUser/' + id)
+      .then(res => {
+        console.log(res)
+        window.location.reload()
+      })
+      .catch(error => console.log(error))
+  }
 
 
   return (
@@ -36,27 +39,27 @@ const handleDelete =(id)=>{
           <tbody>
             {
               User.map((User) => {
-                return<tr>
+                return <tr>
                   <td>{User.Name}</td>
                   <td>{User.Email}</td>
                   <td>{User.Age}</td>;
                   <td>
-                  <Link to= {'/Update/${user._Id}'} className='btn btn-success'>Update</Link>
-                  <button className='btn btn-danger'
-                  onClick={(e)=>handleDelete(user._id)}>Delete</button>
+                    <Link to={'/Update/${user._Id}'} className='btn btn-success'>Update</Link>
+                    <button className='btn btn-danger'
+                      onClick={(e) => handleDelete(user._id)}>Delete</button>
                   </td>
                 </tr>
 
               })
             }
             <tr>
-              
+
               <td>ankita</td>
               <td>ankita@gamil.com</td>
               <td>20</td>
               <tb>
-              <Link to="/Update" className='btn btn-success'>Update</Link>
-              <button className='btn btn-danger'>Delete</button>
+                <Link to="/Update" className='btn btn-success'>Update</Link>
+                <button className='btn btn-danger'>Delete</button>
               </tb>
             </tr>
           </tbody>
