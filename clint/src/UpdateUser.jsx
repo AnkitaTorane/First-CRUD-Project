@@ -12,12 +12,12 @@ function UpdateUser() {
   const Navigate = useNavigate()
 
   useEffect(() => {
-    axios.get('http://localhost:3001/getUser/' + id)
+    axios.get('http://localhost:3001/getUser/' +id)
       .then(result => {
         console.log(result)
-        setName(result.data.name)
-        setEmail(result.data.email)
-        setAge(result.data.age)
+        setname(result.data.name)
+        setemail(result.data.email)
+        setage(result.data.age)
 
       })
       .catch(error => console.log(error))
@@ -45,18 +45,18 @@ function UpdateUser() {
           <Form.Group className="mb-4" controlId="formGroupEmail">
             <Form.Label>Name</Form.Label>
             <Form.Control type="text" placeholder="Enter name" 
-            value={name} onChange={(e)=> setName (e.target.value)}/>
+            value={name} onChange={(e)=> setname (e.target.value)}/>
           </Form.Group>
 
           <Form.Group className="mb-4" controlId="formGroupPassword">
             <Form.Label>Email</Form.Label>
             <Form.Control type="email" placeholder="Enter email" 
-             value={email} onChange={(e)=> setEmail (e.target.value)} />
+             value={email} onChange={(e)=> setemail (e.target.value)} />
           </Form.Group>
           <Form.Group className="mb-4" controlId="formGroupPassword">
             <Form.Label>Age</Form.Label>
             <Form.Control type="age" placeholder="Enter Age" 
-            value={age} onChange={(e)=> setAge (e.target.value)} />
+            value={age} onChange={(e)=> setage (e.target.value)} />
           </Form.Group>
 
           <button className='btn btn-success'>Update</button>

@@ -57,10 +57,10 @@ function User() {
               <td>ankita</td>
               <td>ankita@gamil.com</td>
               <td>20</td>
-              <tb>
+              <td>
                 <Link to="/Update" className='btn btn-success'>Update</Link>
                 <button className='btn btn-danger'>Delete</button>
-              </tb>
+              </td>
             </tr>
           </tbody>
         </Table>

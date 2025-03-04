@@ -7,7 +7,7 @@ const app = express()
 app.use(cors())
 app.use (express.json())
 
-mongoose.connection("mongodb://127.0.0.1:27017/curd")
+mongoose.connect("mongodb://127.0.0.1:27017/curd")
 
 app.get('/',(req,res)=>{
 UserModel.find({})
@@ -47,12 +47,11 @@ app.delete('/deleteuser/id',(req,res)=>{
 app.post("/CreateUser", (req, res) =>{
     UserModel.create(req.body)
     .then(users => res.json(users))
-    .catch(error => res.json(error ))
+    .catch(error => res.json(error))
 })
 
+const port = 3001;  
 
-const port = 3001;
-
-app.listen(port, ()=>{
+app.listen(3001, ()=>{
     console.log("Server is Running")
 });
