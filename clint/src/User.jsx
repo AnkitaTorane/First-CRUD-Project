@@ -14,7 +14,7 @@ function User() {
   }, [])
 
   const handleDelete = (id) => {
-    axios.delete('http://localhost:3001/deleteUser/' + id)
+    axios.delete('http://localhost:3001/deleteuser/'+id )
       .then(res => {
         console.log(res)
         window.location.reload()
@@ -40,11 +40,11 @@ function User() {
             {
               User.map((User) => {
                 return <tr>
-                  <td>{User.Name}</td>
-                  <td>{User.Email}</td>
-                  <td>{User.Age}</td>
+                  <td>{User.name}</td>
+                  <td>{User.email}</td>
+                  <td>{User.age}</td>
                   <td>
-                    <Link to={'/Update/${user._Id}'} className='btn btn-success'>Update</Link>
+                    <Link to={`/Update/${User._id}`} className='btn btn-success'>Update</Link>
                     <button className='btn btn-danger'
                       onClick={(e) => handleDelete(User._id)}>Delete</button>
                   </td>
