@@ -12,7 +12,7 @@ function UpdateUser() {
   const Navigate = useNavigate()
 
   useEffect(() => {
-    axios.get('http://localhost:3001/getUser/' +id)
+    axios.get('http://localhost:3001/get-User/' + id)
       .then(result => {
         console.log(result)
         setname(result.data.name)
@@ -24,17 +24,17 @@ function UpdateUser() {
 
   }, [])
 
-  const Update =(e) => {
+  const Update = (e) => {
     e.preventDefault();
-  axios.put("http://localhost:3001/UpdateUser/"+id,{name, email, age})    
-  .then(result=> {
-    console.log (result)
-    Navigate('/')
-  
-  })
-    .catch(error => console.log(error))
-}
-  
+    axios.put("http://localhost:3001/UpdateUser/" + id, { name, email, age })
+      .then(result => {
+        console.log(result)
+        Navigate('/')
+
+      })
+      .catch(error => console.log(error))
+  }
+
 
 
   return (
@@ -44,19 +44,19 @@ function UpdateUser() {
           <h2>Update</h2>
           <Form.Group className="mb-4" controlId="formGroupEmail">
             <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter name" 
-            value={name} onChange={(e)=> setname (e.target.value)}/>
+            <Form.Control type="text" placeholder="Enter name"
+              value={name} onChange={(e) => setname(e.target.value)} />
           </Form.Group>
 
           <Form.Group className="mb-4" controlId="formGroupPassword">
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" 
-             value={email} onChange={(e)=> setemail (e.target.value)} />
+            <Form.Control type="email" placeholder="Enter email"
+              value={email} onChange={(e) => setemail(e.target.value)} />
           </Form.Group>
           <Form.Group className="mb-4" controlId="formGroupPassword">
             <Form.Label>Age</Form.Label>
-            <Form.Control type="age" placeholder="Enter Age" 
-            value={age} onChange={(e)=> setage (e.target.value)} />
+            <Form.Control type="age" placeholder="Enter Age"
+              value={age} onChange={(e) => setage(e.target.value)} />
           </Form.Group>
 
           <button className='btn btn-success'>Update</button>

@@ -42,17 +42,17 @@ function User() {
                 return <tr>
                   <td>{User.Name}</td>
                   <td>{User.Email}</td>
-                  <td>{User.Age}</td>;
+                  <td>{User.Age}</td>
                   <td>
                     <Link to={'/Update/${user._Id}'} className='btn btn-success'>Update</Link>
                     <button className='btn btn-danger'
-                      onClick={(e) => handleDelete(user._id)}>Delete</button>
+                      onClick={(e) => handleDelete(User._id)}>Delete</button>
                   </td>
                 </tr>
 
               })
             }
-            <tr>
+            {/* <tr>
 
               <td>ankita</td>
               <td>ankita@gamil.com</td>
@@ -61,7 +61,7 @@ function User() {
                 <Link to="/Update" className='btn btn-success'>Update</Link>
                 <button className='btn btn-danger'>Delete</button>
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </Table>
 
